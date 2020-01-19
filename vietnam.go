@@ -25,30 +25,37 @@ import "fmt"
 //ok..now I'm thinking I should leave the original Heap as much as possible and redo fracta as a
 //sieve called vietnam which takes the output of Heap and prints the soln no. and the soln. Neater that way? ...sqeeezy
 
-func fracta(a []int) int {
-	//p, q numerator and denominator of awkward fractional part
-	n := 0
+
+
+func fracta(a []int) int {           //   <---- my func
+	//p, q numerator and denominator of awkward fractional part     13 * a[1] / a[2] + a[6] * a[7] / a[8]
+	n := 0                      // will be the solution number once I've written that bit
 	p := 13*a[1]*a[8] + a[2]*a[6]*a[7]
 	q := a[2] * a[8]
+	
 	//now test to see if p is a multiple of q; 1 to 70 returns all 136 solutions. 
-	//My original Python code only returned 128 because of int/float division badness and so in golang now I wrote the p q multiple bit
-	for k := 1; k < 70; k++ {
-		if m := k * q; m == p {   // test for integer return from fractional section of equation
-			if a[0]+k+a[3]+12*a[4]-a[5] == 87 {    //then test for the whole equation
-				n++
+	//My original Python code only returned 128 because of int/float division badness 
+	//and so in golang now, I wrote the p q multiple bit
+	
+	for k := 1; k < 70; k++ {                      //turned out negative ints unnecessary and 70 is big enough for this puzzle
+		if m := k * q; m == p {                             // test for integer return from fractional section of equation
+			if a[0]+k+a[3]+12*a[4]-a[5] == 87 {         //then test for the whole equation
+				n++                              //increment solution number
 				fmt.Println(n, "   ", a)
 			} //fmt.Println(k)
 		}
 
 	}
-	return n
-}
+	return n                              //return solution number
+}                                             // end of my bit ...sqeeezy                      
 
-// HeapPermutation .... I didn't write this code but here's the oblig comment.
+
+
+// HeapPermutation .... I didn't write this code but here's the obligatory comment.
 func HeapPermutation(a []int, size int) {
 	if size == 1 {
-		fracta(a)
-		//if a[0]+13*a[1]/a[2]+a[3]+12*a[4]-a[5]+a[6]*a[7]/a[8] == 87
+		fracta(a)                   //     <-----   my hack
+		                            //if a[0]+13*a[1]/a[2]+a[3]+12*a[4]-a[5]+a[6]*a[7]/a[8] == 87
 
 	}
 
