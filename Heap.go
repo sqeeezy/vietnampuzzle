@@ -1,3 +1,5 @@
+// I didn't write the Heap algorithm I'm a novice. I did the fracta bit, so kudos to the guy whose code I copied..sqeeezy
+
 // Suppose we have a permutation containing N different elements.
 // Heap found a systematic method for choosing at each step a pair of elements to switch,
 // in order to produce every possible permutation of these elements exactly once.
@@ -20,7 +22,7 @@ import "fmt"
 //actually I've just made it do the whole equation test..now have to suss out
 //how to update the solution number without using global variables
 //ok..now I'm thinking I should leave the original Heap as much as possible and redo fracta as a
-//sieve called vietnam which takes the output of Heap and prints the soln no. and the soln. Neater that way?
+//sieve called vietnam which takes the output of Heap and prints the soln no. and the soln. Neater that way? ...sqeeezy
 
 func fracta(a []int) int {
 	//p, q numerator and denominator of awkward fractional part
