@@ -1,4 +1,5 @@
 // I didn't write the Heap algorithm I'm a novice. I did the fracta bit, so kudos to the guy whose code I copied..sqeeezy
+//vietnam arithmetic puzzle https://www.theguardian.com/science/alexs-adventures-in-numberland/2015/may/20/can-you-do-the-maths-puzzle-for-vietnamese-eight-year-olds-that-has-stumped-parents-and-teachers#comments
 
 // Suppose we have a permutation containing N different elements.
 // Heap found a systematic method for choosing at each step a pair of elements to switch,
@@ -29,10 +30,11 @@ func fracta(a []int) int {
 	n := 0
 	p := 13*a[1]*a[8] + a[2]*a[6]*a[7]
 	q := a[2] * a[8]
-	//now test to see if p is a multiple of q; -30 to +30 chosen at random
+	//now test to see if p is a multiple of q; 1 to 70 returns all 136 solutions. 
+	//My original Python code only returned 128 because of int/float division badness and so in golang now I wrote the p q multiple bit
 	for k := 1; k < 70; k++ {
-		if m := k * q; m == p {
-			if a[0]+k+a[3]+12*a[4]-a[5] == 87 {
+		if m := k * q; m == p {   // test for integer return from fractional section of equation
+			if a[0]+k+a[3]+12*a[4]-a[5] == 87 {    //then test for the whole equation
 				n++
 				fmt.Println(n, "   ", a)
 			} //fmt.Println(k)
