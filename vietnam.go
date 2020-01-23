@@ -37,7 +37,8 @@ func fracta(a []int) int {           //   <---- my func
 	//My original Python code only returned 128 because of int/float division badness 
 	//and so in golang now, I wrote the p q multiple bit
 	
-	for k := 1; k < 70; k++ {                      //turned out negative ints unnecessary and 70 is big enough for this puzzle
+	probableMaxMultipleBound := 70
+	for k := 1; k < probableMaxMultipleBound; k++ {                      //turned out negative ints unnecessary and 70 is big enough for this puzzle
 		if m := k * q; m == p {                             // test for integer return from fractional section of equation
 			if a[0]+k+a[3]+12*a[4]-a[5] == 87 {         //then test for the whole equation
 				n++                              //increment solution number
